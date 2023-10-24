@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('postal_code');
             $table->text('address');
             $table->string('password');
+            $table->string('password_confirm');
             $table->enum('status',['1','2'])->default('1')->comment = "1=Active, 2=Inactive";
             $table->rememberToken();
             $table->timestamps();
