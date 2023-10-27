@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfGeneratorController;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +41,9 @@ Route::middleware('auth')->group(function () {
 //     $validateRole = User::VALIDATION_RULE ;
 //     return $validateRole;
 // });
+
+Route::get('pdf-generator', [PdfGeneratorController::class, 'pdfGenerator']);
+
+
 
 require __DIR__ . '/auth.php';
