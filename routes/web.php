@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuzzleTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfGeneratorController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('pdf-generator', [PdfGeneratorController::class, 'pdfGenerator']);
 
-
+Route::controller(GuzzleTestController::class)->prefix('guzzle')->name('guzzle.')->group(function () {
+    Route::get('posts', 'allPost');
+    Route::get('post/{id}', 'post');
+    Route::get('store', 'store');
+    Route::get('update/{id}', 'update');
+    Route::get('delete/{id}', 'delete');
+});
 
 require __DIR__ . '/auth.php';
